@@ -164,11 +164,12 @@ class JsonDatabase implements Database
 
     public function destroy(): void
     {
-        $files = glob( $this->path . '*.json' ); // get all file names
+        $files = glob( $this->path . '*.json' ); // get all json files
 
-        foreach ( $files as $file ) { // iterate files
-            if ( is_file( $file ) )
-                @unlink($file); // delete file
+        foreach ( $files as $file ) {
+            if ( is_file( $file ) ) {
+                @unlink($file);
+            }
         }
     }
 }
